@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2415.robot.subsystems;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -19,7 +20,12 @@ public class DriveSubsystem extends Subsystem {
 	//		Solenoid nameOfSolenoid;
 	//
 	//hint: we use CANTalons as motors (that's all you're really gonna need)
-
+	
+	CANTalon leftForwardCANTalon;
+	CANTalon rightForwardCANTalon;
+	CANTalon leftBackCANTalon;
+	CANTalon rightBackCANTalon;
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
@@ -42,6 +48,10 @@ public class DriveSubsystem extends Subsystem {
     	//remember that we keep all of our ports in the
     	//RobotMap class so you have to access them from
     	//there.
+    	leftForwardCANTalon = new CANTalon(88);
+    	leftBackCANTalon = new CANTalon(89);
+    	rightForwardCANTalon = new CANTalon(90);
+    	rightBackCANTalon = new CANTalon(91);
     }
     
     //TODO:
@@ -55,5 +65,11 @@ public class DriveSubsystem extends Subsystem {
     //		functions a CANTalon object has, you would go
     //		to the api website I showed you for all the
     //		nice documentation: http://first.wpi.edu/FRC/roborio/release/docs/java/
+    public static void moveForward(CANTalon talon) {
+    	if (talon.isEnabled() == false) {
+    		talon.enable();
+    	}
+    	
+    }
 }
 
