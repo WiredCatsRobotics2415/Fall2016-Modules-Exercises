@@ -1,10 +1,10 @@
 
 package org.usfirst.frc.team2415.robot;
 
-import org.usfirst.frc.team2415.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team2415.robot.commands.FireCatapultCommand;
+import org.usfirst.frc.team2415.robot.subsystems.BasicCatapultSubsystem;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -20,8 +20,8 @@ public class Robot extends IterativeRobot {
 
 	public static WiredCatGamepad gamepad;
 	public static WiredCatJoystick operator;
+	public static BasicCatapultSubsystem CatapultSubsystem;
 	
-	public static DriveSubsystem driveSubsystem;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -32,7 +32,10 @@ public class Robot extends IterativeRobot {
     	gamepad = new WiredCatGamepad(0);
     	operator = new WiredCatJoystick(1);
     	
-    	driveSubsystem = new DriveSubsystem();
+    	CatapultSubsystem = new BasicCatapultSubsystem();
+    	
+    	
+    	operator.buttons[1].whileHeld(new FireCatapultCommand());
     }
 	
 	/**
