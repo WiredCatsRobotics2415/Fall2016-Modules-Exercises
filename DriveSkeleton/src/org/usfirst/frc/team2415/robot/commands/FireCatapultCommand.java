@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2415.robot.commands;
 
+import org.usfirst.frc.team2415.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -16,6 +18,8 @@ public class FireCatapultCommand extends Command {
 	     * hint: you have to access the catapultSubsystem from
 	     * 		 the Robot class
 	     */
+		
+		requires(Robot.CatapultSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -24,6 +28,8 @@ public class FireCatapultCommand extends Command {
     	 * hint: you have to access the functions from the
     	 * 		 catapultSubsystem from the Robot class
     	 */
+    	
+    	Robot.CatapultSubsystem.RetractCatapult();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,6 +39,8 @@ public class FireCatapultCommand extends Command {
     	 * 		 catapultSubsystem from the Robot class
     	 * 
     	 */
+    	
+    	Robot.CatapultSubsystem.FireCatapult();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -46,6 +54,8 @@ public class FireCatapultCommand extends Command {
     	 * hint: you have to access the functions from the
     	 * 		 catapultSubsystem from the Robot class
     	 */
+    	
+    	Robot.CatapultSubsystem.RetractCatapult();
     }
 
     // Called when another command which requires one or more of the same
@@ -55,5 +65,8 @@ public class FireCatapultCommand extends Command {
     	 * hint: you have to access the functions from the
     	 * 		 catapultSubsystem from the Robot class
     	 */
+    	
+    	Robot.CatapultSubsystem.RetractCatapult();
     }
+    
 }
